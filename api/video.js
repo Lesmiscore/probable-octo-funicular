@@ -41,9 +41,10 @@ module.exports = async (req, res) => {
           .on("response", (response) => console.log(`${response.status()} ${response.url()}`))
           .on("requestfailed", (request) => console.log(`${request.failure().errorText} ${request.url()}`));
         await page.setRequestInterception(true);
-        page._client.on("Network.webSocketFrameReceived", ({ requestId, timestamp, response }) => {
-          console.log(response.payloadData);
-          res.send(response.payloadData);
+        page._client.on("Network.webSocketFrameReceived", (data) => {
+          console.log(data);
+          resolve(data);
+          res.send(data.response.payloadData);
         });
         try {
           await page.goto(`https://live.fc2.com/${id}/`, {
