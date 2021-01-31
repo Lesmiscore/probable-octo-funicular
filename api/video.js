@@ -46,11 +46,7 @@ module.exports = async (req, res) => {
           resolve(data);
           res.send(data.response.payloadData);
         });
-        try {
-          await page.goto(`https://live.fc2.com/${id}/`, {
-            timeout: 2000,
-          });
-        } catch (e) {}
+        await page.goto(`https://live.fc2.com/${id}/`);
         console.log("loaded");
         if (take == "yes" || take == "take") {
           // send screenshot for debugging
