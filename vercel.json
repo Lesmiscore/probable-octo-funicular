@@ -1,8 +1,4 @@
 {
-  "routes": [
-    { "src": "/api/.*", "status": 404 },
-    { "src": "^/video/(?<id>[^/]+)(?:/(?<take>[^/]+))?$", "dest": "/api/video?id=$id&take=$take" }
-  ],
   "github": {
     "silent": true
   }
