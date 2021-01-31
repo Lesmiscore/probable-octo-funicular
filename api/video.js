@@ -23,7 +23,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
  */
 
 module.exports = async (req, res) => {
-  const { id } = req.query;
+  const { id, take } = req.query;
   const { puppeteer } = chromium;
   const browser = await puppeteer.launch({
     args: [...chromium.args, "--autoplay-policy=no-user-gesture-required"],
@@ -52,6 +52,12 @@ module.exports = async (req, res) => {
           });
         } catch (e) {}
         console.log("loaded");
+        if (take == "yes" || take == "take") {
+          // send screenshot for debugging
+          const img = await page.screenshot({ type: "png" });
+          res.setHeader("Content-Type", "image/png");
+          res.send(img);
+        }
       })().catch(reject);
     });
   } finally {
