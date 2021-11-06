@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
-    "eslint": "8.0.1",
+    "eslint": "8.2.0",
     "husky": "7.0.3",
     "lint-staged": "11.2.3",
     "mocha": "9.1.3",
