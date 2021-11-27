@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "chrome-aws-lambda": "^10.0.0",
-    "puppeteer-core": "^10.0.0"
+    "puppeteer-core": "^12.0.0"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
